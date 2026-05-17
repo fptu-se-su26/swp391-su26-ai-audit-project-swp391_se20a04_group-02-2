@@ -8,7 +8,7 @@
 | Class | SE20A04 |
 | Semester | SU26 |
 | Group |2  |
-| Topic |  |
+| Topic | Nền tảng kết nối trực tiếp có giúp hộ sản xuất nhỏ tăng khả năng tiếp cận người tiêu dùng  |
 | Repository |  |
 
 ---
@@ -17,11 +17,11 @@
 
 | No | Student ID | Full Name | GitHub Username | Role | Main Responsibility |
 |---:|---|---|---|---|---|
-| 1 |  |  |  | Leader |  |
-| 2 |  |  |  | Member |  |
-| 3 |  |  |  | Member |  |
-| 4 |  |  |  | Member |  |
-| 5 |  |  |  | Member |  |
+| 1 |DE180177  | Trần Phú Long |  | Leader |  |
+| 2 |  |Lê Bùi Đăng Khoa  |  | Member |  |
+| 3 |DE170573  |Huỳnh Văn Lĩnh  |  | Member |  |
+| 4 |DE191085  | Lê văn Hoàng Quan |  | Member |  |
+| 5 |DE170252  | Phan Văn Huy |  | Member |  |
 
 ---
 
