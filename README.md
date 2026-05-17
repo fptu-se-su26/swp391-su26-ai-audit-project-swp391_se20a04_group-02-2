@@ -20,7 +20,7 @@
 | 1 |DE180177  | Trần Phú Long |  | Leader |  |
 | 2 |DE180183  |Lê Bùi Đăng Khoa  |  | Member |  |
 | 3 |DE170573  |Huỳnh Văn Lĩnh  |  | Member |  |
-| 4 |DE191085  | Lê văn Hoàng Quan |  | Member |  |
+| 4 |DE191085  | Lê văn Hoàng Quang |  | Member |  |
 | 5 |DE170252  | Phan Văn Huy |  | Member |  |
 
 ---
