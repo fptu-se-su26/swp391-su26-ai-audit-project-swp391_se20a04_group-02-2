@@ -1,0 +1,482 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f7f2;
+  font-family: Inter, sans-serif;
+}
+
+/* ===== LAYOUT ===== */
+
+.farmer-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f7f2;
+}
+
+/* ===== SIDEBAR ===== */
+
+.farmer-sidebar {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid #e4e4de;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-logo {
+  margin-bottom: 30px;
+}
+
+.sidebar-logo h1 {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 800;
+  color: #14511b;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.sidebar-menu a:hover {
+  background: #f1f4ec;
+}
+
+.sidebar-menu a.active {
+  background: #1d5b1f;
+  color: white;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 16px 0;
+}
+
+/* ===== ACCOUNT ===== */
+
+.farmer-account {
+  margin-top: 30px;
+}
+
+.account-label {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.account-box {
+  background: #dff0d8;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #14511b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-box h4 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.account-box p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ===== MAIN ===== */
+
+.farmer-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+
+.farmer-header {
+  height: 90px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.farmer-header h2 {
+  font-size: 36px;
+  color: #14511b;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.add-product-btn {
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: #14511b;
+  color: white;
+  padding: 0 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.notification-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* ===== CONTENT ===== */
+
+.farmer-content {
+  padding: 0 32px 40px;
+}
+
+/* ===== STATS ===== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.stat-icon.green {
+  background: #e6f5e6;
+  color: #14511b;
+}
+
+.stat-icon.orange {
+  background: #fff1e5;
+  color: #d07a00;
+}
+
+.stat-card p {
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 34px;
+}
+
+/* ===== FILTER ===== */
+
+.filter-box {
+  background: white;
+  border-radius: 22px;
+  padding: 18px;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-input {
+  flex: 1;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.filter-box select {
+  height: 50px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  padding: 0 18px;
+  background: white;
+}
+
+/* ===== TABLE ===== */
+
+.table-wrapper {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table thead {
+  background: #f6f6f1;
+}
+
+.product-table th {
+  padding: 18px 24px;
+  text-align: left;
+  color: #666;
+  font-size: 13px;
+}
+
+.product-table td {
+  padding: 22px 24px;
+  border-top: 1px solid #eee;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.product-info img {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.product-info h4 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.product-info p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.category-badge {
+  background: #e7f5e4;
+  color: #14511b;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 700;
+  color: #14511b;
+}
+
+.price span {
+  font-size: 12px;
+  color: #888;
+  margin-left: 3px;
+}
+
+/* ===== STOCK ===== */
+
+.stock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.stock.available {
+  color: #1f7a26;
+}
+
+.stock.available .dot {
+  background: #1f7a26;
+}
+
+.stock.warning {
+  color: #d07a00;
+}
+
+.stock.warning .dot {
+  background: #d07a00;
+}
+
+.stock.error {
+  color: #d72626;
+}
+
+.stock.error .dot {
+  background: #d72626;
+}
+
+/* ===== ACTION ===== */
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.action-buttons .delete {
+  color: red;
+}
+
+/* ===== PAGINATION ===== */
+
+.pagination {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination p {
+  color: #666;
+  font-size: 13px;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination-buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination-buttons .active-page {
+  background: #14511b;
+  color: white;
+  border: none;
+}
+
+/* ===== FOOTER ===== */
+
+.farmer-footer {
+  margin-top: auto;
+  padding: 22px 32px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #666;
+}
+
+.footer-links a:hover {
+  color: #14511b;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+
+  .farmer-sidebar {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-box {
+    flex-direction: column;
+  }
+
+  .farmer-header,
+  .farmer-content,
+  .farmer-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .farmer-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
