@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Star, MapPin, ArrowLeft, Heart } from 'lucide-react';
-import './ProductDetailPage.css';
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { ShoppingCart, Star, MapPin, ArrowLeft, Heart } from "lucide-react";
+import "./ProductDetailPage.css";
 
 function ProductDetailPage() {
   const { productId } = useParams();
@@ -17,11 +17,13 @@ function ProductDetailPage() {
       price: 25000,
       originalPrice: 30000,
       location: "Đà Lạt",
-      image: "https://product.hstatic.net/200000477661/product/rau-muong-1_3efd60b9cfe343c081b1c3a0b5eeaec0_master.jpg",
+      image:
+        "https://product.hstatic.net/200000477661/product/rau-muong-1_3efd60b9cfe343c081b1c3a0b5eeaec0_master.jpg",
       badge: "ĐỔI MỚI",
       badgeColor: "bg-orange-500",
       rating: 5,
-      description: "Rau muống hữu cơ tươi sạch được trồng không sử dụng thuốc trừ sâu hoá học. Rau giàu dinh dưỡng, tốt cho sức khỏe.",
+      description:
+        "Rau muống hữu cơ tươi sạch được trồng không sử dụng thuốc trừ sâu hoá học. Rau giàu dinh dưỡng, tốt cho sức khỏe.",
       categories: ["Rau sạch", "Rau hữu cơ", "Rau tươi"],
       seller: "Vườn rau Đà Lạt",
       sellerRating: 4.8,
@@ -39,11 +41,13 @@ function ProductDetailPage() {
       price: 45000,
       originalPrice: null,
       location: "Tiền Giang",
-      image: "https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/6/2/cam-sanh-1-1134-1685673156031-16856731562081411734272.jpg",
+      image:
+        "https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/6/2/cam-sanh-1-1134-1685673156031-16856731562081411734272.jpg",
       badge: "BÁN CHẠY",
       badgeColor: "bg-red-500",
       rating: 5,
-      description: "Cam sành tươi ngon từ vùng ven biển Tiền Giang. Cam chín tự nhiên, có múi to, ngọt, nước nhiều.",
+      description:
+        "Cam sành tươi ngon từ vùng ven biển Tiền Giang. Cam chín tự nhiên, có múi to, ngọt, nước nhiều.",
       categories: ["Cam tươi", "Cam ngọt", "Hàng chất lượng cao"],
       seller: "Trang trại cam Tiền Giang",
       sellerRating: 4.9,
@@ -65,7 +69,8 @@ function ProductDetailPage() {
       badge: null,
       badgeColor: null,
       rating: 5,
-      description: "Gạo ST25 Sóc Trăng được công nhận là gạo ngon nhất thế giới. Hạt dài, thơm, dẻo, ngon.",
+      description:
+        "Gạo ST25 Sóc Trăng được công nhận là gạo ngon nhất thế giới. Hạt dài, thơm, dẻo, ngon.",
       categories: ["Gạo hạng I", "Gạo thơm", "Sản phẩm tự hào"],
       seller: "Công ty lúa gạo Sóc Trăng",
       sellerRating: 4.7,
@@ -83,11 +88,13 @@ function ProductDetailPage() {
       price: 120000,
       originalPrice: null,
       location: "Lâm Đồng",
-      image: "https://storage.googleapis.com/onelife-public/blog.onelife.vn/2024/01/bc3a163d-dau-tay-da-lat.png",
+      image:
+        "https://storage.googleapis.com/onelife-public/blog.onelife.vn/2024/01/bc3a163d-dau-tay-da-lat.png",
       badge: null,
       badgeColor: null,
       rating: 5,
-      description: "Dâu tây Đà Lạt tươi ngon, đỏ mọng, ngọt, không hư hỏng. Được thu hoạch sáng và gửi ngay.",
+      description:
+        "Dâu tây Đà Lạt tươi ngon, đỏ mọng, ngọt, không hư hỏng. Được thu hoạch sáng và gửi ngay.",
       categories: ["Trái cây tươi", "Dâu tây", "Dâu ngọt"],
       seller: "Vườn dâu Đà Lạt",
       sellerRating: 4.6,
@@ -141,12 +148,20 @@ function ProductDetailPage() {
                 {product.badge}
               </div>
             )}
-            <img src={product.image} alt={product.name} className="product-image" />
+            <img
+              src={product.image}
+              alt={product.name}
+              className="product-image"
+            />
           </div>
 
           {/* Hình ảnh bổ sung */}
           <div className="product-thumbnails">
-            <img src={product.image} alt="thumbnail 1" className="thumbnail active" />
+            <img
+              src={product.image}
+              alt="thumbnail 1"
+              className="thumbnail active"
+            />
             <img src={product.image} alt="thumbnail 2" className="thumbnail" />
             <img src={product.image} alt="thumbnail 3" className="thumbnail" />
             <img src={product.image} alt="thumbnail 4" className="thumbnail" />
@@ -163,7 +178,12 @@ function ProductDetailPage() {
                 {Array(product.rating)
                   .fill(0)
                   .map((_, i) => (
-                    <Star key={i} size={16} className="star-icon" fill="currentColor" />
+                    <Star
+                      key={i}
+                      size={16}
+                      className="star-icon"
+                      fill="currentColor"
+                    />
                   ))}
               </div>
               <span className="rating-text">5.0 (452 đánh giá)</span>
@@ -173,14 +193,20 @@ function ProductDetailPage() {
           {/* Giá */}
           <div className="product-price-section">
             <div className="price-display">
-              <span className="current-price">{product.price.toLocaleString('vi-VN')}đ</span>
+              <span className="current-price">
+                {product.price.toLocaleString("vi-VN")}đ
+              </span>
               {product.originalPrice && (
                 <>
-                  <span className="original-price">{product.originalPrice.toLocaleString('vi-VN')}đ</span>
+                  <span className="original-price">
+                    {product.originalPrice.toLocaleString("vi-VN")}đ
+                  </span>
                   <span className="discount-badge">
                     -
                     {Math.round(
-                      ((product.originalPrice - product.price) / product.originalPrice) * 100
+                      ((product.originalPrice - product.price) /
+                        product.originalPrice) *
+                        100,
                     )}
                     %
                   </span>
@@ -193,15 +219,25 @@ function ProductDetailPage() {
           <div className="quantity-section">
             <label>Số lượng:</label>
             <div className="quantity-controls">
-              <button className="qty-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>−</button>
-              <input 
-                type="number" 
-                value={quantity} 
-                onChange={handleQuantityChange} 
-                className="qty-input" 
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              >
+                −
+              </button>
+              <input
+                type="number"
+                value={quantity}
+                onChange={handleQuantityChange}
+                className="qty-input"
                 min="1"
               />
-              <button className="qty-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
+              <button
+                className="qty-btn"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
             </div>
           </div>
 
@@ -216,7 +252,7 @@ function ProductDetailPage() {
               <span>Thêm vào giỏ hàng</span>
             </button>
             <button
-              className={`favorite-btn ${isFavorite ? 'active' : ''}`}
+              className={`favorite-btn ${isFavorite ? "active" : ""}`}
               onClick={() => setIsFavorite(!isFavorite)}
             >
               <Heart size={20} />
@@ -247,11 +283,18 @@ function ProductDetailPage() {
                   {Array(Math.floor(product.sellerRating))
                     .fill(0)
                     .map((_, i) => (
-                      <Star key={i} size={14} className="star-icon-small" fill="currentColor" />
+                      <Star
+                        key={i}
+                        size={14}
+                        className="star-icon-small"
+                        fill="currentColor"
+                      />
                     ))}
                 </div>
                 <span className="seller-score">{product.sellerRating}</span>
-                <span className="seller-reviews">({product.sellerReviews} đánh giá)</span>
+                <span className="seller-reviews">
+                  ({product.sellerReviews} đánh giá)
+                </span>
               </div>
             </div>
           </div>
@@ -270,7 +313,11 @@ function ProductDetailPage() {
           <div className="story-left">
             <h2>Câu chuyện sản phẩm</h2>
             <p>{product.description}</p>
-            <p>Thực 3 đơn hàng tặng khiếu kiếm trêu, ở đó hàng năm p tỉnh tưởng Ở bên là bạn đó ở của giỏ rau hoặc cách về độc tính xứ của khuyên ra khi chọn độ Bảo gì chắc chắn.</p>
+            <p>
+              Thực 3 đơn hàng tặng khiếu kiếm trêu, ở đó hàng năm p tỉnh tưởng Ở
+              bên là bạn đó ở của giỏ rau hoặc cách về độc tính xứ của khuyên ra
+              khi chọn độ Bảo gì chắc chắn.
+            </p>
           </div>
           <div className="story-image">
             <img src={product.image} alt="Product Story" />
@@ -316,11 +363,20 @@ function ProductDetailPage() {
             <span className="review-date">5 ngày trước</span>
           </div>
           <div className="review-rating">
-            {Array(5).fill(0).map((_, i) => (
-              <Star key={i} size={14} className="star-icon" fill="currentColor" />
-            ))}
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <Star
+                  key={i}
+                  size={14}
+                  className="star-icon"
+                  fill="currentColor"
+                />
+              ))}
           </div>
-          <p className="review-text">Cam rất tươi, ngon, nhiều nước. Gửi rất nhanh. Sẽ mua lại!</p>
+          <p className="review-text">
+            Cam rất tươi, ngon, nhiều nước. Gửi rất nhanh. Sẽ mua lại!
+          </p>
         </div>
         <div className="review-item">
           <div className="review-header">
@@ -328,11 +384,21 @@ function ProductDetailPage() {
             <span className="review-date">10 ngày trước</span>
           </div>
           <div className="review-rating">
-            {Array(5).fill(0).map((_, i) => (
-              <Star key={i} size={14} className="star-icon" fill="currentColor" />
-            ))}
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <Star
+                  key={i}
+                  size={14}
+                  className="star-icon"
+                  fill="currentColor"
+                />
+              ))}
           </div>
-          <p className="review-text">Rau tươi, an toàn, chất lượng tốt. Mình mua cho cả nhà. Nhân viên giao hàng cũng rất tốt!</p>
+          <p className="review-text">
+            Rau tươi, an toàn, chất lượng tốt. Mình mua cho cả nhà. Nhân viên
+            giao hàng cũng rất tốt!
+          </p>
         </div>
       </div>
 
@@ -351,7 +417,9 @@ function ProductDetailPage() {
               >
                 <img src={p.image} alt={p.name} />
                 <h4>{p.name}</h4>
-                <p className="related-price">{p.price.toLocaleString('vi-VN')}đ</p>
+                <p className="related-price">
+                  {p.price.toLocaleString("vi-VN")}đ
+                </p>
               </div>
             ))}
         </div>

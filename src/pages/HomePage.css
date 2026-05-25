@@ -194,7 +194,9 @@ body {
 /* PRODUCT CARD */
 
 .product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -250,11 +252,7 @@ body {
 .testimonial-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.6),
-    transparent
-  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
 /* BADGE */

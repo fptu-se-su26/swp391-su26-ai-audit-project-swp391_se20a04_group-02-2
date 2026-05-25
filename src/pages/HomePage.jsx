@@ -1,9 +1,4 @@
-import {
-  ShoppingCart,
-  Search,
-  Star,
-  MapPin,
-} from "lucide-react";
+import { ShoppingCart, Search, Star, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 
@@ -64,8 +59,7 @@ function HomePage() {
       price: "180.000đ",
       originalPrice: null,
       location: "Sóc Trăng",
-      image:
-        "https://cdn.tgdd.vn/2020/12/CookProduct/9-1200x676.jpg",
+      image: "https://cdn.tgdd.vn/2020/12/CookProduct/9-1200x676.jpg",
       rating: 5,
     },
     {
@@ -82,11 +76,9 @@ function HomePage() {
 
   return (
     <div className="bg-white">
-
       {/* HEADER */}
       <header className="top-navbar">
         <div className="navbar-container">
-
           {/* LEFT */}
           <div className="navbar-left">
             <h1 className="logo">PreOnic</h1>
@@ -96,10 +88,7 @@ function HomePage() {
                 Trang Chủ
               </a>
 
-              <button
-                onClick={() => navigate("/products")}
-                className="nav-btn"
-              >
+              <button onClick={() => navigate("/products")} className="nav-btn">
                 Sản Phẩm
               </button>
 
@@ -110,15 +99,11 @@ function HomePage() {
 
           {/* RIGHT */}
           <div className="navbar-right">
-
             {/* SEARCH */}
             <div className="search-box">
               <Search size={18} />
 
-              <input
-                type="text"
-                placeholder="Tìm kiếm nông sản..."
-              />
+              <input type="text" placeholder="Tìm kiếm nông sản..." />
             </div>
 
             {/* CART */}
@@ -131,17 +116,11 @@ function HomePage() {
               onClick={() => navigate("/dashboard")}
               className="avatar-btn"
             >
-              <img
-                src="https://i.pravatar.cc/100"
-                alt="avatar"
-              />
+              <img src="https://i.pravatar.cc/100" alt="avatar" />
             </button>
 
             {/* LOGIN */}
-            <button
-              onClick={() => navigate("/login")}
-              className="signin-btn"
-            >
+            <button onClick={() => navigate("/login")} className="signin-btn">
               Đăng nhập
             </button>
           </div>
@@ -166,7 +145,8 @@ function HomePage() {
               </h1>
 
               <p className="text-base md:text-lg mb-8 text-white leading-relaxed">
-                Chúng tôi mang tinh hoa lý tưởng người nông dân Việt đến tận tay bạn.
+                Chúng tôi mang tinh hoa lý tưởng người nông dân Việt đến tận tay
+                bạn.
               </p>
 
               <div className="flex flex-col md:flex-row gap-4">
@@ -187,7 +167,6 @@ function HomePage() {
       <section className="relative -mt-12 md:-mt-16 z-20 px-4 md:px-6 pb-12 md:pb-16">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-4 flex gap-3 flex-col md:flex-row">
-
             <div className="flex-1 flex items-center gap-3 bg-gray-50 rounded-lg px-4 py-3">
               <Search size={20} className="text-gray-500" />
 
@@ -238,13 +217,11 @@ function HomePage() {
       {/* PRODUCTS */}
       <section className="bg-gray-50 py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
             Sản phẩm nổi bật
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-
             {products.map((product) => (
               <div
                 key={product.id}
@@ -260,7 +237,6 @@ function HomePage() {
                 </div>
 
                 <div className="p-4">
-
                   <h3 className="font-semibold text-gray-800 text-sm mb-2">
                     {product.name}
                   </h3>
@@ -299,7 +275,6 @@ function HomePage() {
       {/* COMMUNITY SECTION */}
       <section className="bg-[#f8f6f1] py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-
           {/* TITLE */}
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#1d3b1f] mb-3">
@@ -307,13 +282,13 @@ function HomePage() {
             </h2>
 
             <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-              Kết nối trực tiếp với những người nông dân tâm huyết đang sau mỗi sản phẩm bạn tin dùng.
+              Kết nối trực tiếp với những người nông dân tâm huyết đang sau mỗi
+              sản phẩm bạn tin dùng.
             </p>
           </div>
 
           {/* CONTENT */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-
             {/* BIG CARD */}
             <div className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-lg group h-[420px]">
               <img
@@ -325,7 +300,6 @@ function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
               <div className="absolute bottom-0 left-0 p-8 text-white">
-
                 <span className="bg-orange-400 text-black text-xs px-3 py-1 rounded-full font-semibold">
                   Người giữ hồn quê
                 </span>
@@ -335,8 +309,8 @@ function HomePage() {
                 </h3>
 
                 <p className="text-sm md:text-base text-gray-200 max-w-xl leading-relaxed">
-                  “Mỗi cây rau là một lời cam kết về sức khỏe của cộng đồng.
-                  Tôi trồng bằng cả trái tim.”
+                  “Mỗi cây rau là một lời cam kết về sức khỏe của cộng đồng. Tôi
+                  trồng bằng cả trái tim.”
                 </p>
 
                 <button className="mt-5 text-green-300 font-semibold hover:text-white transition">
@@ -347,10 +321,8 @@ function HomePage() {
 
             {/* RIGHT CARDS */}
             <div className="flex flex-col gap-6">
-
               {/* CARD 1 */}
               <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
-
                 <div className="flex items-center gap-4 mb-4">
                   <img
                     src="https://images2.thanhnien.vn/528068263637045248/2023/8/5/nong-dan-16912380915641494490317.png"
@@ -359,9 +331,7 @@ function HomePage() {
                   />
 
                   <div>
-                    <h4 className="font-bold text-gray-800">
-                      Chị Hiền
-                    </h4>
+                    <h4 className="font-bold text-gray-800">Chị Hiền</h4>
 
                     <p className="text-sm text-gray-500">
                       Vườn cây ăn trái Tiền Giang
@@ -376,7 +346,6 @@ function HomePage() {
 
               {/* CARD 2 */}
               <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
-
                 <div className="flex items-center gap-4 mb-4">
                   <img
                     src="https://img.freepik.com/hinh-chup-cao-cap/mot-nguoi-nong-dan-doi-non-la-dang-dung-tren-canh-dong-tao-dang-voi-hai-tay-gio-len-tieu-diem-chon-loc-tren-anh-khuon-mat_37129-2131.jpg"
@@ -385,9 +354,7 @@ function HomePage() {
                   />
 
                   <div>
-                    <h4 className="font-bold text-gray-800">
-                      Anh Thanh
-                    </h4>
+                    <h4 className="font-bold text-gray-800">Anh Thanh</h4>
 
                     <p className="text-sm text-gray-500">
                       Hợp tác xã lúa Sóc Trăng
@@ -396,7 +363,8 @@ function HomePage() {
                 </div>
 
                 <p className="text-gray-600 italic text-sm leading-relaxed">
-                  “Kết hợp công nghệ và kinh nghiệm truyền thống để có hạt gạo vàng.”
+                  “Kết hợp công nghệ và kinh nghiệm truyền thống để có hạt gạo
+                  vàng.”
                 </p>
               </div>
             </div>
@@ -407,18 +375,16 @@ function HomePage() {
       {/* FEATURES */}
       <section className="bg-[#2f6b2f] text-white py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-
           <div>
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center text-2xl">
               🛡️
             </div>
 
-            <h3 className="font-bold text-lg mb-2">
-              100% Sạch & An toàn
-            </h3>
+            <h3 className="font-bold text-lg mb-2">100% Sạch & An toàn</h3>
 
             <p className="text-sm text-green-100 leading-relaxed">
-              Quy trình kiểm soát chất lượng nghiêm ngặt theo tiêu chuẩn quốc tế.
+              Quy trình kiểm soát chất lượng nghiêm ngặt theo tiêu chuẩn quốc
+              tế.
             </p>
           </div>
 
@@ -427,12 +393,11 @@ function HomePage() {
               🌱
             </div>
 
-            <h3 className="font-bold text-lg mb-2">
-              Nguồn gốc rõ ràng
-            </h3>
+            <h3 className="font-bold text-lg mb-2">Nguồn gốc rõ ràng</h3>
 
             <p className="text-sm text-green-100 leading-relaxed">
-              Truy xuất nguồn gốc sản phẩm chỉ với một thao tác quét mã QR đơn giản.
+              Truy xuất nguồn gốc sản phẩm chỉ với một thao tác quét mã QR đơn
+              giản.
             </p>
           </div>
 
@@ -441,12 +406,11 @@ function HomePage() {
               🚚
             </div>
 
-            <h3 className="font-bold text-lg mb-2">
-              Giao hàng nhanh 2H
-            </h3>
+            <h3 className="font-bold text-lg mb-2">Giao hàng nhanh 2H</h3>
 
             <p className="text-sm text-green-100 leading-relaxed">
-              Đảm bảo độ tươi ngon nhất khi đến tay bạn với hệ thống logistics hiện đại.
+              Đảm bảo độ tươi ngon nhất khi đến tay bạn với hệ thống logistics
+              hiện đại.
             </p>
           </div>
         </div>
@@ -454,21 +418,17 @@ function HomePage() {
 
       {/* FOOTER */}
       <footer className="bg-[#f8f6f1] py-14 border-t border-gray-200">
-
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-
           {/* BRAND */}
           <div>
-            <h3 className="text-2xl font-bold text-[#1d3b1f] mb-4">
-              PreOnic
-            </h3>
+            <h3 className="text-2xl font-bold text-[#1d3b1f] mb-4">PreOnic</h3>
 
             <p className="text-gray-600 text-sm leading-relaxed">
-              Bridging the gap between soil and soul. Nâng tầm giá trị nông sản Việt.
+              Bridging the gap between soil and soul. Nâng tầm giá trị nông sản
+              Việt.
             </p>
 
             <div className="flex gap-3 mt-5">
-
               <button className="w-9 h-9 rounded-full border flex items-center justify-center hover:bg-green-700 hover:text-white transition">
                 🌐
               </button>
@@ -481,9 +441,7 @@ function HomePage() {
 
           {/* COMPANY */}
           <div>
-            <h4 className="font-bold text-gray-800 mb-4">
-              CÔNG TY
-            </h4>
+            <h4 className="font-bold text-gray-800 mb-4">CÔNG TY</h4>
 
             <ul className="space-y-3 text-sm text-gray-600">
               <li>About Us</li>
@@ -494,9 +452,7 @@ function HomePage() {
 
           {/* SUPPORT */}
           <div>
-            <h4 className="font-bold text-gray-800 mb-4">
-              HỖ TRỢ
-            </h4>
+            <h4 className="font-bold text-gray-800 mb-4">HỖ TRỢ</h4>
 
             <ul className="space-y-3 text-sm text-gray-600">
               <li>Shipping Policy</li>
@@ -507,16 +463,13 @@ function HomePage() {
 
           {/* NEWSLETTER */}
           <div>
-            <h4 className="font-bold text-gray-800 mb-4">
-              BẢN TIN SẠCH
-            </h4>
+            <h4 className="font-bold text-gray-800 mb-4">BẢN TIN SẠCH</h4>
 
             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
               Nhận cập nhật về các đợt nông sản mới nhất và ưu đãi độc quyền.
             </p>
 
             <div className="flex flex-col gap-3">
-
               <input
                 type="email"
                 placeholder="Email của bạn"
@@ -531,7 +484,8 @@ function HomePage() {
         </div>
 
         <div className="border-t border-gray-300 mt-12 pt-6 text-center text-sm text-gray-500">
-          © 2026 PreOnic AgriTech. Bridging the gap between soil and soul. Bảo lưu mọi quyền.
+          © 2026 PreOnic AgriTech. Bridging the gap between soil and soul. Bảo
+          lưu mọi quyền.
         </div>
       </footer>
     </div>

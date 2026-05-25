@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import {
-  MapPin,
-  Star,
-  Filter,
-  Search,
-  ShoppingCart,
-} from "lucide-react";
+import { MapPin, Star, Filter, Search, ShoppingCart } from "lucide-react";
 import "./ProductsPage.css";
 
 function ProductsPage() {
@@ -15,8 +9,7 @@ function ProductsPage() {
 
   const categoryParam = searchParams.get("category") || "all";
 
-  const [selectedCategory, setSelectedCategory] =
-    useState(categoryParam);
+  const [selectedCategory, setSelectedCategory] = useState(categoryParam);
 
   const [sortBy, setSortBy] = useState("popular");
 
@@ -63,8 +56,7 @@ function ProductsPage() {
       price: 180000,
       originalPrice: null,
       location: "Sóc Trăng",
-      image:
-        "https://cdn.tgdd.vn/2020/12/CookProduct/9-1200x676.jpg",
+      image: "https://cdn.tgdd.vn/2020/12/CookProduct/9-1200x676.jpg",
       badge: null,
       badgeColor: null,
       rating: 5,
@@ -146,9 +138,7 @@ function ProductsPage() {
   const filteredProducts =
     selectedCategory === "all"
       ? allProducts
-      : allProducts.filter(
-          (p) => p.category === selectedCategory
-        );
+      : allProducts.filter((p) => p.category === selectedCategory);
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === "popular") return b.reviews - a.reviews;
@@ -164,19 +154,14 @@ function ProductsPage() {
         <div className="navbar-container">
           {/* Logo */}
           <div className="navbar-left">
-            <h1
-              className="logo"
-              onClick={() => navigate("/")}
-            >
+            <h1 className="logo" onClick={() => navigate("/")}>
               PreOnic
             </h1>
           </div>
 
           {/* Menu */}
           <nav className="navbar-links">
-            <button onClick={() => navigate("/")}>
-              Trang Chủ
-            </button>
+            <button onClick={() => navigate("/")}>Trang Chủ</button>
 
             <button
               className="active-link"
@@ -194,20 +179,14 @@ function ProductsPage() {
           <div className="navbar-right">
             <div className="search-box">
               <Search size={18} color="#666" />
-              <input
-                type="text"
-                placeholder="Tìm sản phẩm..."
-              />
+              <input type="text" placeholder="Tìm sản phẩm..." />
             </div>
 
             <button className="icon-btn">
               <ShoppingCart size={18} />
             </button>
 
-            <button
-              onClick={() => navigate("/login")}
-              className="signin-btn"
-            >
+            <button onClick={() => navigate("/login")} className="signin-btn">
               Đăng nhập
             </button>
 
@@ -215,10 +194,7 @@ function ProductsPage() {
               className="avatar-btn"
               onClick={() => navigate("/dashboard")}
             >
-              <img
-                src="https://i.pravatar.cc/100"
-                alt="avatar"
-              />
+              <img src="https://i.pravatar.cc/100" alt="avatar" />
             </button>
           </div>
         </div>
@@ -232,19 +208,19 @@ function ProductsPage() {
             {selectedCategory === "all"
               ? "Rau củ tươi sạch"
               : selectedCategory === "rau-cu"
-              ? "Rau củ"
-              : selectedCategory === "trai-cay"
-              ? "Trái cây"
-              : selectedCategory === "dac-san"
-              ? "Đặc sản địa phương"
-              : selectedCategory === "huu-co"
-              ? "Thực phẩm hữu cơ"
-              : "Sản phẩm"}
+                ? "Rau củ"
+                : selectedCategory === "trai-cay"
+                  ? "Trái cây"
+                  : selectedCategory === "dac-san"
+                    ? "Đặc sản địa phương"
+                    : selectedCategory === "huu-co"
+                      ? "Thực phẩm hữu cơ"
+                      : "Sản phẩm"}
           </h2>
 
           <p className="products-page-description">
-            Khám phá những sản phẩm tươi sạch từ các nông
-            dân uy tín trên toàn quốc
+            Khám phá những sản phẩm tươi sạch từ các nông dân uy tín trên toàn
+            quốc
           </p>
         </div>
 
@@ -266,9 +242,7 @@ function ProductsPage() {
                       name="category"
                       value={cat.id}
                       checked={selectedCategory === cat.id}
-                      onChange={(e) =>
-                        setSelectedCategory(e.target.value)
-                      }
+                      onChange={(e) => setSelectedCategory(e.target.value)}
                     />
 
                     <span>{cat.name}</span>
@@ -328,31 +302,19 @@ function ProductsPage() {
             {/* Sort */}
             <div className="products-sort-bar">
               <span className="products-count">
-                Hiển thị{" "}
-                <strong>
-                  {sortedProducts.length}
-                </strong>{" "}
-                sản phẩm
+                Hiển thị <strong>{sortedProducts.length}</strong> sản phẩm
               </span>
 
               <select
                 className="products-sort-select"
                 value={sortBy}
-                onChange={(e) =>
-                  setSortBy(e.target.value)
-                }
+                onChange={(e) => setSortBy(e.target.value)}
               >
-                <option value="popular">
-                  Phổ biến nhất
-                </option>
+                <option value="popular">Phổ biến nhất</option>
 
-                <option value="price-low">
-                  Giá thấp đến cao
-                </option>
+                <option value="price-low">Giá thấp đến cao</option>
 
-                <option value="price-high">
-                  Giá cao đến thấp
-                </option>
+                <option value="price-high">Giá cao đến thấp</option>
               </select>
             </div>
 
@@ -362,9 +324,7 @@ function ProductsPage() {
                 <div
                   key={product.id}
                   className="products-card"
-                  onClick={() =>
-                    navigate(`/product/${product.id}`)
-                  }
+                  onClick={() => navigate(`/product/${product.id}`)}
                 >
                   {/* Image */}
                   <div className="products-card-image">
@@ -385,16 +345,12 @@ function ProductsPage() {
 
                   {/* Content */}
                   <div className="products-card-content">
-                    <h3 className="products-card-name">
-                      {product.name}
-                    </h3>
+                    <h3 className="products-card-name">{product.name}</h3>
 
                     {/* Rating */}
                     <div className="products-card-rating">
                       <div className="products-rating-stars">
-                        {Array(
-                          Math.floor(product.rating)
-                        )
+                        {Array(Math.floor(product.rating))
                           .fill(0)
                           .map((_, i) => (
                             <Star
@@ -406,26 +362,19 @@ function ProductsPage() {
                       </div>
 
                       <span className="products-rating-text">
-                        {product.rating} (
-                        {product.reviews} đánh giá)
+                        {product.rating} ({product.reviews} đánh giá)
                       </span>
                     </div>
 
                     {/* Price */}
                     <div className="products-card-price">
                       <span className="products-price-current">
-                        {product.price.toLocaleString(
-                          "vi-VN"
-                        )}
-                        đ
+                        {product.price.toLocaleString("vi-VN")}đ
                       </span>
 
                       {product.originalPrice && (
                         <span className="products-price-original">
-                          {product.originalPrice.toLocaleString(
-                            "vi-VN"
-                          )}
-                          đ
+                          {product.originalPrice.toLocaleString("vi-VN")}đ
                         </span>
                       )}
                     </div>

@@ -181,10 +181,7 @@ function ProductFarmer() {
             <div className="search-input">
               <Search size={18} />
 
-              <input
-                type="text"
-                placeholder="Tìm kiếm sản phẩm..."
-              />
+              <input type="text" placeholder="Tìm kiếm sản phẩm..." />
             </div>
 
             <select>
@@ -218,10 +215,7 @@ function ProductFarmer() {
                   <tr key={product.id}>
                     <td>
                       <div className="product-info">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                        />
+                        <img src={product.image} alt={product.name} />
 
                         <div>
                           <h4>{product.name}</h4>
@@ -231,9 +225,7 @@ function ProductFarmer() {
                     </td>
 
                     <td>
-                      <span className="category-badge">
-                        {product.category}
-                      </span>
+                      <span className="category-badge">{product.category}</span>
                     </td>
 
                     <td>

@@ -9,38 +9,21 @@ import ProductFarmer from "./DashboardFarmer/productFarmer";
 
 export default function App() {
   return (
-      <Routes>
+    <Routes>
+      {/* HOME */}
+      <Route path="/" element={<HomePage />} />
 
-        {/* HOME */}
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
+      {/* PRODUCTS */}
+      <Route path="/products" element={<ProductsPage />} />
 
-        {/* PRODUCTS */}
-        <Route
-          path="/products"
-          element={<ProductsPage />}
-        />
+      {/* PRODUCT DETAIL */}
+      <Route path="/product/:productId" element={<ProductDetailPage />} />
 
-        {/* PRODUCT DETAIL */}
-        <Route
-          path="/product/:productId"
-          element={<ProductDetailPage />}
-        />
+      {/* FARMER DASHBOARD */}
+      <Route path="/dashboard" element={<DashboardFarmer />} />
 
-        {/* FARMER DASHBOARD */}
-        <Route
-          path="/dashboard"
-          element={<DashboardFarmer />}
-        />
-
-        {/* FARMER PRODUCTS */}
-        <Route
-          path="/farmer-products"
-          element={<ProductFarmer />}
-        />
-
-      </Routes>
+      {/* FARMER PRODUCTS */}
+      <Route path="/farmer-products" element={<ProductFarmer />} />
+    </Routes>
   );
 }

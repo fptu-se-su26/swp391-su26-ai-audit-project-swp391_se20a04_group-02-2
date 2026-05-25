@@ -11,5 +11,5 @@ root.render(
     <BrowserRouter basename="/swp391-su26-ai-audit-project-swp391_se20a04_group-02-2">
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

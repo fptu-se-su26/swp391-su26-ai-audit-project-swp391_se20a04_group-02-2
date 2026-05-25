@@ -163,7 +163,7 @@ body {
   border: none;
   background: white;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 /* ===== CONTENT ===== */
@@ -449,7 +449,6 @@ body {
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 992px) {
-
   .farmer-sidebar {
     display: none;
   }

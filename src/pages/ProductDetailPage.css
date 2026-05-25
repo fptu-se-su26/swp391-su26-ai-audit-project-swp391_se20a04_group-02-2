@@ -413,7 +413,6 @@
   fill: currentColor;
 }
 
-
 /* Chính sách bảo - Orange Box */
 .policies-box {
   background-color: #f8e8d4;
@@ -450,7 +449,7 @@
   padding: 0;
   line-height: 1.4;
 }
- 
+
 /* Thông tin người bán */
 .seller-info {
   padding: 15px;
