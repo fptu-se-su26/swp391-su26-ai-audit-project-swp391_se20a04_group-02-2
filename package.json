@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://fptu-se-su26.github.io/swp391-su26-ai-audit-project-swp391_se20a04_group-02-2/",
-  "homepage": ".",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
