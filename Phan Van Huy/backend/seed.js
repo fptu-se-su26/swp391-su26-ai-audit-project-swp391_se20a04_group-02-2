@@ -1,8 +1,12 @@
 require('dotenv').config();
-const { initDb } = require('./db');
+const { initDb } = require('./config/database');
+const Product = require('./models/Product');
 
 async function seed() {
   const pool = await initDb();
+  
+  // Initialize database tables
+  await Product.ensureTable(pool);
 
   const seedProducts = [
     {
@@ -23,27 +27,31 @@ async function seed() {
       quantity: 80,
       imageUrl: 'https://example.com/images/khoai-lang.jpg',
     },
+    {
+      farmerId: 'farmer-002',
+      name: 'Cà chua bi',
+      description: 'Cà chua bi đỏ tươi ngon.',
+      category: 'Rau độc lập',
+      price: 15000,
+      quantity: 100,
+      imageUrl: 'https://example.com/images/ca-chua-bi.jpg',
+    },
+    {
+      farmerId: 'farmer-002',
+      name: 'Rau cải xanh',
+      description: 'Rau cải xanh tươi, sạch sẽ.',
+      category: 'Rau lá',
+      price: 12000,
+      quantity: 200,
+      imageUrl: 'https://example.com/images/rau-cai-xanh.jpg',
+    },
   ];
 
-  for (const product of seedProducts) {
-    const now = new Date();
-    await pool.request()
-      .input('farmerId', product.farmerId)
-      .input('name', product.name)
-      .input('description', product.description)
-      .input('category', product.category)
-      .input('price', product.price)
-      .input('quantity', product.quantity)
-      .input('imageUrl', product.imageUrl)
-      .input('createdAt', now)
-      .input('updatedAt', now)
-      .query(`
-        INSERT INTO dbo.Products (farmerId, name, description, category, price, quantity, imageUrl, createdAt, updatedAt)
-        VALUES (@farmerId, @name, @description, @category, @price, @quantity, @imageUrl, @createdAt, @updatedAt)
-      `);
+  for (const productData of seedProducts) {
+    await Product.create(pool, productData);
   }
 
-  console.log('Seed completed.');
+  console.log('Seed completed successfully with 4 sample products.');
   process.exit(0);
 }
 
