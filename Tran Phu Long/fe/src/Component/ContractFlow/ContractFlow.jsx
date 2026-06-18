@@ -20,12 +20,14 @@ const STEPS = [
 
 const UNIT_TO_KG = {
   tan: 1000,
+  ta: 100,
   kg: 1,
   thung: 25,
 };
 
 const UNIT_LABELS = {
   tan: "Tấn",
+  ta: "Tạ",
   kg: "kg",
   thung: "Thùng",
 };
@@ -47,6 +49,7 @@ function ContractFlow() {
   const [loading, setLoading] = useState(false);
   const [createdContract, setCreatedContract] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [farmerAutoFilled, setFarmerAutoFilled] = useState(false);
   const [form, setForm] = useState({
     productName: "",
     quantity: "",
@@ -67,6 +70,10 @@ function ContractFlow() {
         const p = res?.data?.product;
         if (!p) return;
         setSelectedProduct(p);
+        const autoFarmerName = user?.role === "enterprise"
+          ? (p.seller?.name || p.seller?.fullName || "")
+          : "";
+        if (autoFarmerName) setFarmerAutoFilled(true);
         setForm(prev => ({
           ...prev,
           productName: p.name || prev.productName,
@@ -74,7 +81,7 @@ function ContractFlow() {
           pricePerUnit: prev.pricePerUnit || String(p.priceMin || ""),
           quantity: prev.quantity || "1",
           farmerName: user?.role === "enterprise"
-            ? (p.farmer?.fullName || p.farmerName || prev.farmerName)
+            ? (autoFarmerName || prev.farmerName)
             : prev.farmerName,
         }));
       })
@@ -261,8 +268,8 @@ function ContractFlow() {
                         />
                         <select value={form.unit} onChange={e => handleChange("unit", e.target.value)}>
                           <option value="tan">Tấn</option>
+                          <option value="ta">Tạ</option>
                           <option value="kg">kg</option>
-                          <option value="thung">Thùng</option>
                         </select>
                       </div>
                       {selectedProduct && (
@@ -354,12 +361,12 @@ function ContractFlow() {
                         value={user?.role === "farmer" ? form.enterpriseName : form.farmerName}
                         onChange={e => handleChange(user?.role === "farmer" ? "enterpriseName" : "farmerName", e.target.value)}
                         placeholder={user?.role === "farmer" ? "Tên doanh nghiệp" : "Tên nông dân / HTX"}
-                        readOnly={user?.role === "enterprise" && !!selectedProduct && !!form.farmerName}
-                        style={user?.role === "enterprise" && !!selectedProduct && !!form.farmerName
+                        readOnly={user?.role === "enterprise" && farmerAutoFilled}
+                        style={user?.role === "enterprise" && farmerAutoFilled
                           ? { background: "#f3f4f6", color: "#374151", cursor: "not-allowed" }
                           : {}}
                       />
-                      {user?.role === "enterprise" && !!selectedProduct && !!form.farmerName && (
+                      {user?.role === "enterprise" && farmerAutoFilled && (
                         <p className="cf-field-note">Tên nông dân được lấy từ sản phẩm đăng bán.</p>
                       )}
                     </div>
