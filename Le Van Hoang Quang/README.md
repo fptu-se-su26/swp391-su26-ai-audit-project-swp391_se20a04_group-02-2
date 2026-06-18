@@ -1,6 +1,6 @@
-# PreOnic – Nền tảng Bao tiêu & Kết nối Nông sản trước mùa vụ
+# PreOnic – Nền tảng Bao tiêu trước mùa vụ
 
-**PreOnic** là một ứng dụng Web (AgriTech) được xây dựng với sứ mệnh kết nối trực tiếp giữa hộ sản xuất nông nghiệp nhỏ/hợp tác xã và người tiêu dùng. Nền tảng giúp tối ưu hóa chuỗi cung ứng thông qua mô hình bao tiêu trước mùa vụ, nâng cao giá trị nông sản Việt và đảm bảo nguồn thực phẩm sạch ổn định.
+**PreOnic** là một ứng dụng Web được xây dựng với sứ mệnh kết nối trực tiếp giữa hộ sản xuất nông nghiệp nhỏ/hợp tác xã và người tiêu dùng. Nền tảng giúp tối ưu hóa chuỗi cung ứng thông qua mô hình bao tiêu trước mùa vụ, nâng cao giá trị nông sản Việt và đảm bảo nguồn thực phẩm sạch ổn định.
 
 > "Nông sản sạch từ tâm - Kết nối từ đất lành đến phố thị"
 
