@@ -1,11 +1,9 @@
-require('dotenv').config();
-const { initDb } = require('./config/database');
-const Product = require('./models/Product');
+import 'dotenv/config';
+import connectDB from './config/database';
+import { Product } from './models/Product';
 
 async function seed() {
-  const pool = await initDb();
-  
-  // Initialize database tables
+  const pool = await connectDB();
   await Product.ensureTable(pool);
 
   const seedProducts = [

@@ -1,5 +1,19 @@
-class Product {
-  constructor(data = {}) {
+import { ConnectionPool } from 'mssql';
+import { CreateProductInput, ProductData, UpdateProductInput } from '../types';
+
+export class Product {
+  id?: number;
+  farmerId?: string;
+  name?: string;
+  description?: string;
+  category?: string;
+  price?: number;
+  quantity?: number;
+  imageUrl?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+
+  constructor(data: ProductData = {}) {
     this.id = data.id;
     this.farmerId = data.farmerId;
     this.name = data.name;
@@ -12,7 +26,7 @@ class Product {
     this.updatedAt = data.updatedAt;
   }
 
-  static async ensureTable(pool) {
+  static async ensureTable(pool: ConnectionPool): Promise<void> {
     await pool.request().query(`
       IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Products]') AND type in (N'U'))
       BEGIN
@@ -32,7 +46,7 @@ class Product {
     `);
   }
 
-  static async getAll(pool, farmerId = null) {
+  static async getAll(pool: ConnectionPool, farmerId?: string | null): Promise<Product[]> {
     const request = pool.request();
     let query = 'SELECT * FROM dbo.Products';
     if (farmerId) {
@@ -40,19 +54,21 @@ class Product {
       request.input('farmerId', farmerId);
     }
     const result = await request.query(query);
-    return result.recordset.map(row => new Product(row));
+    return result.recordset.map((row: ProductData) => new Product(row));
   }
 
-  static async getById(pool, id) {
-    const result = await pool.request()
+  static async getById(pool: ConnectionPool, id: number): Promise<Product | null> {
+    const result = await pool
+      .request()
       .input('id', id)
       .query('SELECT * FROM dbo.Products WHERE id = @id');
     return result.recordset[0] ? new Product(result.recordset[0]) : null;
   }
 
-  static async create(pool, data) {
+  static async create(pool: ConnectionPool, data: CreateProductInput): Promise<Product> {
     const now = new Date();
-    const result = await pool.request()
+    const result = await pool
+      .request()
       .input('farmerId', data.farmerId)
       .input('name', data.name)
       .input('description', data.description || '')
@@ -70,9 +86,14 @@ class Product {
     return new Product(result.recordset[0]);
   }
 
-  static async update(pool, id, data) {
+  static async update(
+    pool: ConnectionPool,
+    id: number,
+    data: UpdateProductInput
+  ): Promise<Product | null> {
     const now = new Date();
-    const result = await pool.request()
+    const result = await pool
+      .request()
       .input('id', id)
       .input('name', data.name)
       .input('description', data.description || '')
@@ -96,12 +117,11 @@ class Product {
     return result.recordset[0] ? new Product(result.recordset[0]) : null;
   }
 
-  static async delete(pool, id) {
-    const result = await pool.request()
+  static async delete(pool: ConnectionPool, id: number): Promise<boolean> {
+    const result = await pool
+      .request()
       .input('id', id)
       .query('DELETE FROM dbo.Products WHERE id = @id');
     return result.rowsAffected[0] > 0;
   }
 }
-
-module.exports = Product;
