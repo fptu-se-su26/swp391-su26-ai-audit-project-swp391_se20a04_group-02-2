@@ -1,5 +1,7 @@
-const validateCreateProduct = (data) => {
-  const errors = [];
+import { CreateProductInput, UpdateProductInput } from '../types';
+
+export const validateCreateProduct = (data: CreateProductInput): string[] | null => {
+  const errors: string[] = [];
 
   if (!data.farmerId || typeof data.farmerId !== 'string' || data.farmerId.trim() === '') {
     errors.push('farmerId is required and must be a non-empty string');
@@ -20,8 +22,8 @@ const validateCreateProduct = (data) => {
   return errors.length > 0 ? errors : null;
 };
 
-const validateUpdateProduct = (data) => {
-  const errors = [];
+export const validateUpdateProduct = (data: UpdateProductInput): string[] | null => {
+  const errors: string[] = [];
 
   if (data.name !== undefined && (typeof data.name !== 'string' || data.name.trim() === '')) {
     errors.push('name must be a non-empty string');
@@ -36,9 +38,4 @@ const validateUpdateProduct = (data) => {
   }
 
   return errors.length > 0 ? errors : null;
-};
-
-module.exports = {
-  validateCreateProduct,
-  validateUpdateProduct,
 };
