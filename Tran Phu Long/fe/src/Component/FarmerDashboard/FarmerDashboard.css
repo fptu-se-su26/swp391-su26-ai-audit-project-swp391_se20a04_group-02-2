@@ -8,7 +8,7 @@
   display: flex;
   min-height: 100vh;
   background: #f6f8f6;
-  font-family: 'Work Sans', system-ui, sans-serif;
+  font-family: var(--font-base);
 }
 
 /* ==================== */
@@ -171,25 +171,53 @@
 }
 
 .fd-create {
-  margin: 0 14px;
-  padding: 10px 12px;
-  background: #13ec37;
-  color: #111812;
+  margin: 4px 14px 16px;
+  padding: 13px 14px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #ffffff;
   border: none;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 700;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(19, 236, 55, 0.2);
-  transition: all 0.2s;
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  letter-spacing: 0.2px;
+}
+
+.fd-create::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  animation: fd-create-pulse 2.4s ease-out infinite;
+}
+
+@keyframes fd-create-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
 .fd-create:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(22, 163, 74, 0.45);
+}
+
+.fd-create.active {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+}
+
+.fd-create-plus {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 /* SIDEBAR FOOTER */
@@ -1771,7 +1799,7 @@
 .cd-code-badge {
   padding: 5px 12px; background: #f3f4f6; border-radius: 8px;
   font-size: 12px; font-weight: 700; color: #374151;
-  font-family: monospace; letter-spacing: 0.5px;
+  font-family: var(--font-mono); letter-spacing: 0.5px;
 }
 
 /* Preview header status */
@@ -1895,7 +1923,7 @@
 
 .cci-code {
   font-size: 11px; font-weight: 700; color: #9ca3af;
-  letter-spacing: 0.5px; margin-bottom: 4px; font-family: monospace;
+  letter-spacing: 0.5px; margin-bottom: 4px; font-family: var(--font-mono);
 }
 .cci-date { font-size: 11px; color: #9ca3af; margin-top: 4px; }
 
@@ -3932,7 +3960,7 @@
   border: 1px solid #dbe6dd;
   border-radius: 8px;
   font-size: 14px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-heading);
   color: #111812;
   background: white;
   transition: all 0.2s;
@@ -4309,7 +4337,7 @@
   border: 1.5px solid #dbe6dd;
   border-radius: 10px;
   font-size: 14px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-heading);
   color: #111812;
   background: #fff;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -5005,7 +5033,7 @@
   margin-bottom: 10px;
 }
 .fd-list-title { font-size: 14px; font-weight: 700; color: #111812; margin-bottom: 2px; }
-.fd-list-code  { font-size: 10.5px; color: #9ca3af; font-family: monospace; }
+.fd-list-code  { font-size: 10.5px; color: #9ca3af; font-family: var(--font-mono); }
 .fd-list-fields {
   display: flex;
   gap: 20px;
@@ -5087,7 +5115,7 @@
   border-bottom: 1px solid #e8f0ea;
 }
 .fd-order-partner { font-size: 13px; font-weight: 700; color: #111812; }
-.fd-order-code    { font-size: 10.5px; color: #9ca3af; font-family: monospace; margin-top: 1px; }
+.fd-order-code    { font-size: 10.5px; color: #9ca3af; font-family: var(--font-mono); margin-top: 1px; }
 .fd-order-card-body {
   display: flex;
   justify-content: space-between;
@@ -6363,4 +6391,28 @@
 @media (max-width: 768px) {
   .fd-finance-stats { grid-template-columns: repeat(2, 1fr); }
   .fd-finance-wrap  { padding: 16px; }
+}
+
+/* ==================== */
+/* RESPONSIVE (nâng cấp hạng mục i) */
+/* ==================== */
+
+/* Lưới thống kê tự co — không vỡ trên tablet/mobile */
+.fd-stats { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+.fd-header { gap: 12px; }
+
+@media (max-width: 991px) {
+  /* Drawer mode: bỏ width cố định cũ ở 768px, dùng .dash-drawer */
+  .fd-sidebar { width: 264px; }
+  .fd-content { padding: 18px 16px; }
+  .fd-header { padding: 12px 16px; }
+}
+
+@media (max-width: 560px) {
+  /* Trên điện thoại nhỏ: thu gọn header, ẩn ô tìm kiếm để nhường chỗ cho chuông + avatar */
+  .fd-header-search { display: none; }
+  .fd-header-actions { gap: 10px; margin-left: auto; }
+  .fd-user-info { display: none; }
+  .fd-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
 }
