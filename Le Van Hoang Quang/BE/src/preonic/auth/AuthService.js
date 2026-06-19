@@ -2,14 +2,26 @@ const User = require('../user/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = process.env.JWT_SECRET || 'PREONIC_SUPER_SECRET_KEY';
+
 class AuthService {
     // Xử lý Đăng ký tài khoản
     async registerUser(userData) {
         const { email, password } = userData;
 
-        const isExist = await User.findOne({ email });
+        if (!email || !password) {
+            const error = new Error('Email và mật khẩu là bắt buộc!');
+            error.statusCode = 400;
+            throw error;
+        }
+
+        const normalizedEmail = email.trim().toLowerCase();
+
+        const isExist = await User.findOne({ email: normalizedEmail });
         if (isExist) {
-            throw new Error('Email này đã được đăng ký trên hệ thống PreOnic!');
+            const error = new Error('Email này đã được đăng ký trên hệ thống PreOnic!');
+            error.statusCode = 409;
+            throw error;
         }
 
         // Mã hóa mật khẩu bảo mật (băm chuỗi 10 lớp)
@@ -18,6 +30,7 @@ class AuthService {
 
         const newUser = new User({
             ...userData,
+            email: normalizedEmail,
             password: hashedPassword
         });
 
@@ -26,20 +39,31 @@ class AuthService {
 
     // Xử lý Đăng nhập & cấp thẻ xác thực (Authen Token)
     async loginUser(email, password) {
-        const user = await User.findOne({ email });
+        if (!email || !password) {
+            const error = new Error('Email và mật khẩu là bắt buộc!');
+            error.statusCode = 400;
+            throw error;
+        }
+
+        const normalizedEmail = email.trim().toLowerCase();
+        const user = await User.findOne({ email: normalizedEmail });
         if (!user) {
-            throw new Error('Tài khoản Email hoặc mật khẩu không chính xác!');
+            const error = new Error('Tài khoản Email hoặc mật khẩu không chính xác!');
+            error.statusCode = 401;
+            throw error;
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            throw new Error('Tài khoản Email hoặc mật khẩu không chính xác!');
+            const error = new Error('Tài khoản Email hoặc mật khẩu không chính xác!');
+            error.statusCode = 401;
+            throw error;
         }
 
         // Ký số tạo chuỗi Token có thời hạn sử dụng trong 24 giờ
         const token = jwt.sign(
             { userId: user._id, role: user.role },
-            'PREONIC_SUPER_SECRET_KEY',
+            JWT_SECRET,
             { expiresIn: '24h' }
         );
 

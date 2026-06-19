@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = process.env.JWT_SECRET || 'PREONIC_SUPER_SECRET_KEY';
+
 module.exports = (req, res, next) => {
     // Đọc token từ header "Authorization" dạng: Bearer <token>
     const authHeader = req.header('Authorization');
@@ -14,7 +16,7 @@ module.exports = (req, res, next) => {
 
     try {
         // Kiểm tra xem mã hóa token có khớp với khóa bí mật của hệ thống không
-        const verified = jwt.verify(token, 'PREONIC_SUPER_SECRET_KEY');
+        const verified = jwt.verify(token, JWT_SECRET);
         req.user = verified; // Lưu trữ thông tin giải mã (userId, role) vào request để xử lý tiếp
         next(); // Đạt yêu cầu, cho phép đi qua chốt chặn bảo mật
     } catch (error) {
