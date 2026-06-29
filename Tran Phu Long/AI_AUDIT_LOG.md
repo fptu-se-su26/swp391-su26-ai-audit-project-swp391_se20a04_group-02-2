@@ -4,9 +4,11 @@
 
 | Thông tin | Nội dung |
 |---|---|
+| Tên | Trần Phú Long |
+|Lớp  | SE20A04|
 | Môn học | SWP391 |
 | Project | PreOnic – Nền tảng bao tiêu trước mùa vụ |
-| Nhóm | Group 5 |
+| Nhóm | Group 2 |
 | Học kỳ | Summer 2026 |
 
 ---
